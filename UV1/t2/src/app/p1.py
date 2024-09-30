@@ -9,8 +9,8 @@ from rich import print as rprint  # For rprinting
 
 # --- User Agent and Websites ---
 urls = [
-    "https://www.coingecko.com/",
     "https://www.femscat.com/main.php",
+    "https://www.coingecko.com/",
     "https://www.meanbitches.com/",
 ]
 uA = "Mozilla/5.0 (Linux; Android 11; Redmi Note 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36"
@@ -29,6 +29,19 @@ def func_p1():
         rprint(
             f"[green3][OK] Browser launched in {time.time() - start_time:.2f} seconds[/green3]"
         )
+
+        # Recording video
+        # Rectording Viedo ACtions
+        rprint("[orange1][OK] StartRecording...[/orange1]")
+        context_config = {
+            "record_video_dir": "clicks/",
+            "record_video_size": {"width": 640, "height": 480},
+            "user_agent": uA,
+            "locale": "de-DE",
+            "timezone_id": "Europe/Berlin",
+        }
+        context = browser.new_context(**context_config)
+        page = context.new_page()
 
         # Opening New Page
         rprint(f"[green3][OK] Go to page - {urls[0]}[/green3]")
