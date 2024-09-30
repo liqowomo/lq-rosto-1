@@ -1,6 +1,7 @@
 # This is explicitly for making the banner
 from rich.console import Console
 from rich.panel import Panel
+import requests as rq
 
 console = Console()
 
@@ -25,3 +26,8 @@ def banner2(txt):
     )
     # Print the Panel
     console.print(panel)
+
+
+def pantyBanner():
+    rez1 = rq.get("https://snips.sh/f/ahGYgGrGUK?r=1")
+    print(rez1.text)
